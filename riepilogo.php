@@ -12,7 +12,7 @@
         $n1 = $_GET["n1"];
         $n2 = $_GET["n2"];
 
-        if (empty($n1) || empty($n2)) {
+        if ((intval($n1) != 0 && intval($n2) != 0) && (empty($n1) || empty($n2))) {
             echo "<p class='text-danger'> Almeno uno dei due numeri è vuoto </p>";
             echo "<a href='numeri.html'>number page</a>";
         } else {
@@ -31,7 +31,7 @@
     <table style="border-collapse:collapse">
         <tr>
             <th>Operazione</th>
-            <th>Risultatp</th>
+            <th>Risultato</th>
         </tr>
         <?php
             echo "<tr> <td>Somma</td> <td> $sum</td></tr>";
@@ -40,7 +40,7 @@
             if ($n2 != 0) {
                 echo "<tr> <td>Divisione</td> <td> $div</td></tr>";
             }else{
-                echo "<tr> <td>Divisione</td> <td> $strdiv</td></tr>";
+                echo "<tr> <td>Divisione</td> <td class='text-danger'> $strdiv</td></tr>";
             }
        ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
