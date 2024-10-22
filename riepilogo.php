@@ -12,9 +12,13 @@
         $n1 = $_GET["n1"];
         $n2 = $_GET["n2"];
 
-        if ((intval($n1) != 0 && intval($n2) != 0) && (empty($n1) || empty($n2))) {
+        if (($n1 != 0 && $n2 != 0) && (empty($n1) || empty($n2))) {
             echo "<p class='text-danger'> Almeno uno dei due numeri è vuoto </p>";
             echo "<a href='numeri.html'>number page</a>";
+            $sum = "!!";
+            $sot = "!!";
+            $mol = "!!";
+            $div = "!!";
         } else {
             echo "<ul> <li>$n1</li> <li>$n2</li> </ul>";
             $sum = intval($n1) + intval($n2);
@@ -22,9 +26,9 @@
             $mol = intval($n1) * intval($n2);
             $strdiv;
             if ($n2 != 0) {
-                $div = intval($n1)/intval($n2);
+                $div = number_format(intval($n1)/intval($n2), 3);
             }else{
-                $strdiv = "impossibile";
+                $div = "<span class='text-danger'>impossibile</span>";
             }
         }
     ?>
@@ -37,11 +41,7 @@
             echo "<tr> <td>Somma</td> <td> $sum</td></tr>";
             echo "<tr> <td>Sottrazione</td> <td> $sot</td></tr>";
             echo "<tr> <td>Moltiplicazione</td> <td> $mol</td></tr>";
-            if ($n2 != 0) {
-                echo "<tr> <td>Divisione</td> <td> $div</td></tr>";
-            }else{
-                echo "<tr> <td>Divisione</td> <td class='text-danger'> $strdiv</td></tr>";
-            }
+            echo "<tr> <td>Divisione</td> <td> $div</td></tr>";
        ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
